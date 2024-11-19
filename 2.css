@@ -1,0 +1,41 @@
+*{
+    margin: auto;
+    padding: auto;
+}
+
+body{
+    background-color: bisque;
+    display: flex;
+justify-content: center;
+align-items: center;
+}
+fieldset{
+  height:   50vh;
+  border: solid black;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 20px;
+}
+form input,button{
+    border-radius: 4px;
+    border: none;
+    outline: none;
+
+
+
+}
+button{
+    background-color:rgb(156, 227, 243);
+    border-radius: 8px;
+    font-size: 15px;
+    /* min-height:3vh ;
+    min-width:5vw ; */
+}
+button:hover{
+    color: red;
+}
+

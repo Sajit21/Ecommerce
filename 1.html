@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <form action="3.php" method="post" onsubmit="return validationform()">
+        <fieldset>
+            <label for="uname">Username: </label>
+            <input type="text" name="uname" > <br><br>
+            <label for="pass">Password: </label>
+            <input type="password" name="pass" > <br><br>
+            <label for="passw">Confirm Password: </label>
+            <input type="password" name="passw" id="passw"><br><br>
+            <label for="mail">Email: </label>
+            <input type="email" name="mail" > <br><br>
+            <button type="submit">signup</button>
+        </fieldset>
+    </form>
+    
+    <script>
+  function validationform(){
+    let user=document.getElementsByName("uname")[0].value
+    let pword=document.getElementsByName("pass")[0].value
+    let mal=document.getElementsByName("mail")[0].value
+    let pw=document.getElementsByName("passw")[0].value
+
+
+
+    if (user === "" || pword === "" || mal === "") {
+        alert("All fields are required.");
+        return false;
+    }
+
+    if(pword.length<=8)
+  {
+    alert ("minimum password lenght of 8")
+    return false;
+  }
+  if(pword!=pw){
+    alert("password doesn't match " )
+    return false
+    }
+  
+
+
+  if (/\s/.test(user)) {
+        alert("Username should not contain whitespace.");
+        return false;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+if (!emailRegex.test(mal)) {
+    alert("Please enter a valid email address ending with @gmail.com.");
+    return false;
+}
+return true;
+}
+
+  
+    </script>
+</body>
+</html>
