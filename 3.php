@@ -2,7 +2,7 @@
 $servername="localhost";
 $username="root";
 $password="" ;
-$dbname="sajithero";
+$dbname="Ecommerce";
 
 //create connection
 $conn=new mysqli($servername,$username,$password);
@@ -27,7 +27,7 @@ if ($conn->query($sql1) === TRUE) {
     die("Error creating database: " . $conn->error);
 }
 
-//select the database
+//select the database //connection sangai select_db
 $conn->select_db($dbname);
 
 
@@ -36,12 +36,14 @@ $sql2 = "CREATE TABLE IF NOT EXISTS users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    Cpassword VARCHAR(255) NOT NULL,
     email VARCHAR(50) NOT NULL
 )";
 
 if ($conn->query($sql2) === FALSE) {
     die("Error creating table: " . $conn->error);
 }
+
 
 //retrieve form data
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -67,5 +69,20 @@ if (strlen($pass) <= 8) {
 if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || !str_ends_with($mail, '@gmail.com')) {
     echo "Email not in the correct format.";
 }
+
+//insert of the data from signup
+// $sql3=" INSERT INTO users( id, username, password,  Cpassword, email ) VALUES( '{$uname}', '{$pass}, '{$conf}', '{$mail})";
+ //should be enclosed in a single quote
+//since id is autocorrect we don't need to include them in the insert value
+// $sql3 = "INSERT into users (username, password, Cpassword, email) VALUES ('$uname', '$pass', '$conf', '$mail')";
+
+// if($conn->query($sql3) === true){
+//     echo ("data entered successfully");
+
+// }
+// else{
+//     die("error while intering data". $conn->error);
+// }
+
 ?>
 
